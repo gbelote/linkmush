@@ -1,0 +1,26 @@
+<h1>Listing embeds</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Url</th>
+    <th>Width</th>
+    <th>Height</th>
+  </tr>
+
+<% @embeds.each do |embed| %>
+  <tr>
+    <td><%=h embed.type %></td>
+    <td><%=h embed.url %></td>
+    <td><%=h embed.width %></td>
+    <td><%=h embed.height %></td>
+    <td><%= link_to 'Show', embed %></td>
+    <td><%= link_to 'Edit', edit_embed_path(embed) %></td>
+    <td><%= link_to 'Destroy', embed, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New embed', new_embed_path %>

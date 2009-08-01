@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :embeds
+
   map.resources :links
 
   map.resources :links

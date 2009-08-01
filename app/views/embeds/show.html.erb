@@ -1,0 +1,23 @@
+<p>
+  <b>Type:</b>
+  <%=h @embed.type %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @embed.url %>
+</p>
+
+<p>
+  <b>Width:</b>
+  <%=h @embed.width %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%=h @embed.height %>
+</p>
+
+
+<%= link_to 'Edit', edit_embed_path(@embed) %> |
+<%= link_to 'Back', embeds_path %>

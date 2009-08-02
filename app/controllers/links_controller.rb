@@ -83,4 +83,14 @@ class LinksController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def detail
+    @link = Link.find(:first, :conditions => { :url_name => params[:url_name] })
+
+    respond_to do |format|
+      format.html # detail.html.erb
+      format.xml  { render :xml => @link }
+      format.json { render :json => @link }
+    end
+  end
 end

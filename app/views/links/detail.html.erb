@@ -1,0 +1,54 @@
+<% content_for :head do %>
+    <title><%=h @link.title %> | LinkMush</title>
+<% end %>
+
+<% content_for :banner do %>
+    BANNER
+<% end %>
+
+<% content_for :main do %>
+    <div class="yui-g">ONE</div>
+    <div class="yui-g">TWO</div>
+    <div class="yui-g">THREE</div>
+<% end %>
+
+<% content_for :sidebar do %>
+    NAV
+<% end %>
+
+<% content_for :foot do %>
+    FOOT
+<% end %>
+
+<p>
+  <b>Url:</b>
+  <%= link_to @link.url, @link.url, :rel => "nofollow" %>
+</p>
+
+<% if @link.embed %>
+<p>
+  <b>Embed:</b>
+  <% content_tag :object, :width => @link.embed.width, :height => @link.embed.height, :src => @link.embed.url do %>
+    <%= content_tag :param, '', :name => "movie", :value => "true" %>
+    <%= content_tag :param, '', :name => "allowFullScreen", :value => "true" %>
+    <%= content_tag :param, '', :name => "allowscriptaccess", :value => "true" %>
+    <%= content_tag :embed, '', :src => @link.embed.url, :type => "application/x-shockwave-flash", :allowscriptaccess => "true", :width => @link.embed.width, :height => @link.embed.height %>
+  <% end %>
+</p>
+<% end %>
+
+<p>
+  <b>Title:</b>
+  <%=h @link.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @link.description %>
+</p>
+
+<p>
+  <b>Transcript:</b>
+  <%=h @link.transcript %>
+</p>
+

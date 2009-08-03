@@ -4,33 +4,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <!--<link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">-->
-  <%= stylesheet_link_tag "http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" %>
-  <%= stylesheet_link_tag 'main' %>
-
-  <%= yield :head %>
+  <title>Links: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
 
-<div id="doc2" class="yui-t6">
-<div id="hd" role="banner">
-Linkmush!
-<%= yield :banner %>
-</div>
-<div id="bd" role="main">
-    <div id="yui-main">
-        <div class="yui-b">
-            <%= yield :main %>
-            <%= yield %>
-        </div>
-    </div>
-    <div class="yui-b">
-        <%= yield :sidebar %>
-    </div>
+<p style="color: green"><%= flash[:notice] %></p>
 
-</div>
-<div id="ft" role="contentinfo">
-    <%= yield :foot %>
-</div>
+<%= yield %>
+
 </body>
 </html>

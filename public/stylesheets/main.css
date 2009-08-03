@@ -1,1 +1,5 @@
+.page-wrapper { border: 1px solid black; border-top: 0px; }
+#hd { border-bottom: 1px solid black; }
+#ft { border-top: 1px solid black; }
+.url .domain { font-weight: bold; }
 

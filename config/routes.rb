@@ -3,8 +3,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :links
 
-  map.resources :links
-
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -14,6 +12,9 @@ ActionController::Routing::Routes.draw do |map|
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
   # This route can be invoked with purchase_url(:id => product.id)
+
+  map.detail ':url_name', :controller => :links, :action => :detail
+  map.detail ':url_name.:format', :controller => :links, :action => :detail
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
@@ -37,16 +38,14 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
+  map.root :controller => :links, :action => :list
 
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
+
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-
-  map.connect ':url_name', :controller => :links, :action => :detail
-  map.connect ':url_name.:format', :controller => :links, :action => :detail
 end

@@ -95,7 +95,7 @@ class LinksController < ApplicationController
   end
 
   def list
-    @links = Link.find(:all)
+    @links = Link.find(:all, :conditions => "url_name not null")
 
     respond_to do |format|
       format.html { render :layout => 'standard' }

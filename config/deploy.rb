@@ -12,6 +12,8 @@ set :repository,  "git@github.com:gbelote/linkmush.git"
 
 set :rake, "/var/lib/gems/1.8/bin/rake"
 
+set :runner, nil
+
 # If you have previously been relying upon the code to start, stop 
 # and restart your mongrel application, or if you rely on the database
 # migration code, please uncomment the lines you require below
@@ -41,4 +43,19 @@ set :rake, "/var/lib/gems/1.8/bin/rake"
 # see a full list by running "gem contents capistrano | grep 'scm/'"
 
 role :web, "web01.linkmush.com"
+role :app, "web01.linkmush.com"
 role :db, "web01.linkmush.com", :primary => true
+
+namespace :deploy do
+    desc "Restarting mod_rails with restart.txt"
+    task :restart, :roles => :app, :except => { :no_release => true } do
+        run "touch #{current_path}/tmp/restart.txt"
+    end
+
+    [:start, :stop].each do |t|
+        desc "#{t} task is a no-op with mod_rails"
+        task t, :roles => :app do ; end
+    end
+end
+
+

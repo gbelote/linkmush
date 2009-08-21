@@ -58,4 +58,19 @@ namespace :deploy do
     end
 end
 
+namespace :deploy do
+    desc "Restart apache on server"
+    task :apache_restart, :roles => :app do
+        sudo "/etc/init.d/apache2 restart"
+    end
+end
+
+namespace :apache do
+  [:stop, :start, :restart, :reload].each do |action|
+    desc "#{action.to_s.capitalize} Apache"
+    task action, :roles => :web do
+      invoke_command "/etc/init.d/apache2 #{action.to_s}", :via => run_method
+    end
+  end
+end
 

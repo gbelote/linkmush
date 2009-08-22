@@ -1,7 +1,7 @@
 <% content_for :main do %>
     <ul>
     <% @links.each do |link| %>
-        <li><%= link_to link.title, detail_path(:url_name => link.url_name) %></li>
+        <li><%= link_to link.title, detail_path(link) %></li>
     <% end %>
     </ul>
 <% end %>

@@ -28,10 +28,12 @@
         </div>
         <% end %>
     </div>
-    <div class="yui-g transcript">
+    <% if @link.transcript %>
+        <div class="yui-g transcript">
             <h2>Transcript</h2>
             <%= format_transcript @link.transcript %>
-    </div>
+        </div>
+    <% end %>
 <% end %>
 
 <% content_for :sidebar do %>
@@ -41,7 +43,7 @@
 
     <h2>Similar</h2>
     <ul><% @link.similar_links.each do |link| %>
-        <li><%= link_to link.title, detail_path(:url_name => link.url_name) %></li>
+        <li><%= link_to link.title, detail_path(link) %></li>
     <% end %></ul>
 <% end %>
 

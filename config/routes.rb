@@ -9,12 +9,15 @@ ActionController::Routing::Routes.draw do |map|
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
 
+  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
+  map.root :controller => :links, :action => :list
+
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
   # This route can be invoked with purchase_url(:id => product.id)
 
-  map.detail ':url_name', :controller => :links, :action => :detail
-  map.detail ':url_name.:format', :controller => :links, :action => :detail
+  map.detail ':id', :controller => :links, :action => :detail
+  #map.detail ':id.:format', :controller => :links, :action => :detail
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
@@ -36,9 +39,6 @@ ActionController::Routing::Routes.draw do |map|
   #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
   #     admin.resources :products
   #   end
-
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => :links, :action => :list
 
   # See how all your routes lay out with "rake routes"
 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090802212436) do
+ActiveRecord::Schema.define(:version => 20090822184332) do
 
   create_table "embeds", :force => true do |t|
     t.string   "type"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(:version => 20090802212436) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url_name"
+    t.integer  "similar_reference_id"
+  end
+
+  create_table "similar_references", :force => true do |t|
+    t.integer  "link_id"
+    t.integer  "similar_link_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

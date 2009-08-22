@@ -40,7 +40,9 @@
 
 
     <h2>Similar</h2>
-    <p style="color:red">[ list similar links here ]</p>
+    <ul><% @link.similar_links.each do |link| %>
+        <li><%= link_to link.title, detail_path(:url_name => link.url_name) %></li>
+    <% end %></ul>
 <% end %>
 
 <% content_for :foot do %>
